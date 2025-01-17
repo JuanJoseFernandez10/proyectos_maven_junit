@@ -1,4 +1,4 @@
-package com.endes.instrumento;
+package com.ende;
 
 /**
  * Clase que representa un termómetro para gestionar temperaturas en diferentes unidades.
@@ -44,7 +44,7 @@ public class Termometro {
     }
 
     /**
-     * Convierte la temperatura actual a grados Kelvin.
+     * Convierte la tempTermometro eratura actual a grados Kelvin.
      *
      * @return La temperatura en grados Kelvin.
      * @throws IllegalArgumentException Si la temperatura en Celsius es menor que -273.15 (cero absoluto).

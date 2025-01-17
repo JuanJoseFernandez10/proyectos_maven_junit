@@ -2,29 +2,17 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.endes</groupId>
-  <artifactId>termometro</artifactId>
+  <artifactId>termometro_proyecto</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>termometro</name>
+  <name>termometro_proyecto</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-       <dependency>
+    <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>
         <version>5.11.3</version>
         <scope>test</scope>
     </dependency>
-    <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-engine</artifactId>
-        <version>5.11.3</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-params</artifactId>
-    <version>5.11.3</version>
-    <scope>test</scope>
-</dependency>
   </dependencies>
 </project>
