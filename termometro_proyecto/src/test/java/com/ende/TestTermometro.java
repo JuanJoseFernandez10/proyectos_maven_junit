@@ -3,6 +3,7 @@ package com.ende;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -129,10 +130,31 @@ class TestTermometro {
 	
 	@Test
 	@DisplayName("Esta en rango la temperatura debe coincider con true or false")
-	void testEstaEnRango() {
+	void testEstaEnRangoMin() {
 		double minimo = 40;
 		double maximo = 50;
 		assertFalse(t1.estaEnRango(minimo, maximo), "El rango ha sido reconocido como valido siendo invalido");
+	}
+	@Test
+	@DisplayName("Esta en rango la temperatura debe coincider con true or false")
+	void testEstaEnRangoMax() {
+		double minimo = 10;
+		double maximo = 15;
+		assertFalse(t1.estaEnRango(minimo, maximo), "El rango ha sido reconocido como valido siendo invalido");
+	}
+	@Test
+	@DisplayName("Esta en rango la temperatura debe coincider con true or false")
+	void testEstaEnRangoMinMax() {
+		double minimo = 30;
+		double maximo = 10;
+		assertFalse(t1.estaEnRango(minimo, maximo), "El rango ha sido reconocido como valido siendo invalido");
+	}
+	@Test
+	@DisplayName("Esta en rango la temperatura debe coincider con true")
+	void testEstaEnRangoTrue() {
+		double minimo = 10;
+		double maximo = 30;
+		assertTrue(t1.estaEnRango(minimo, maximo), "El rango ha sido reconocido como valido siendo invalido");
 	}
 	
 	/*
@@ -146,6 +168,12 @@ class TestTermometro {
 	void testEsCongelacion() {		
 		assertFalse(t1.esCongelacion(), "El resultado es valido cuando deberia ser invalido");
 	}
+	@Test
+	@DisplayName("Es congelacion la temperatura debera coincidir con true o false")
+	void testEsCongelacionTrue() {	
+		t1.setTemperaturaCelsius(-2);
+		assertTrue(t1.esCongelacion(), "El resultado es valido cuando deberia ser invalido");
+	}
 	
 	/*
 	 *   ###############################
@@ -154,11 +182,16 @@ class TestTermometro {
 	 */
 	
 	@Test
-	@DisplayName("Es congelacion la temperatura debera coincidir con true o false")
+	@DisplayName("Es ebullicion la temperatura debera coincidir con true ")
 	void testEsEbullicion() {		
 		assertFalse(t1.esEbullicion(), "El resultado es valido cuando deberia ser invalido");
 	}
-	
+	@Test
+	@DisplayName("Es ebullicion la temperatura debera coincidir con false")
+	void testEsEbullicionTrue() {	
+		t1.setTemperaturaCelsius(102);
+		assertTrue(t1.esEbullicion(), "El resultado es valido cuando deberia ser invalido");
+	}
 	
 	
 	
