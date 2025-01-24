@@ -91,10 +91,10 @@ class TestTermometro {
 	@Test
 	@DisplayName("La conversion en Kelvin en cero absoluto no debe efectuarse")
 	void testConvertirAKelvinNegativo() {
-		t1.setTemperaturaCelsius(-273.50);
+		t1.setTemperaturaCelsius(-300.50);
 		String ExcepcionEsperada = "La temperatura no puede estar por debajo del cero absoluto.";
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> t1.convertirAKelvin());
-		assertEquals(ExcepcionEsperada, exception, "Error la excepciones no coinciden o no ha sido lanzada");
+		assertEquals(ExcepcionEsperada, exception.getMessage(), "Error la excepciones no coinciden o no ha sido lanzada");
 	}
 	
 	/*
