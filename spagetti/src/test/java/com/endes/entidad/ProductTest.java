@@ -21,12 +21,25 @@ class ProductTest {
 		**Tests de Constructor**
 	*/
 	
-	@DisplayName("Test del constructor correcto")
+	/*@DisplayName("Test del constructor correcto")
 	@Test
 	void testConstructor() {
 
 			p1 = new Product("Turron", 20.55);
 			Assertions.assertDoesNotThrow(IllegalArgumentException, "");
+	}*/
+	
+	@DisplayName("Test del constructor correcto")
+	@Test
+	void testConstructor() {
+
+			p1 = new Product("Turron", 20.55);
+			String nameExpected = "Turron";
+			double priceExpected = 20.55;
+			String nameActual = p1.getName();
+			double priceActual = p1.getPrice();
+			assertEquals(nameExpected, nameActual, "Test Fallido de nombre");
+			assertEquals(priceExpected, priceActual, "Test Fallid de precio");
 	}
 	
 	
@@ -94,12 +107,52 @@ class ProductTest {
 	@Test
 	void testSetterNameNull() {
 		try {
-			p1 = new Product("", 20.55);
+			p1.setName("");;
 			}catch(IllegalArgumentException e) {
 			String expectedMessage = "Error: Nombre inválido";
 		    String actualMessage = e.getMessage();
 		    assertTrue(actualMessage.contains(expectedMessage));
 		}
+	}
+	
+	@DisplayName("Test del Setter del nombre con nombre correcto")
+	@Test
+	void testSetterName() {
+			p1.setName("Almendras");
+			String valueExpected = "Almendras";
+			String valueActual = p1.getName();
+			assertEquals(valueExpected, valueActual);
+		}
+	
+	@DisplayName("Test del Setter del precio con precio negativo")
+	@Test
+	void testSetterPriceNegative() {
+		try {
+			p1.setPrice(-20);
+		}catch(IllegalArgumentException e) {
+			String expectedMessage = "Error: Precio negativo";
+			String actualMessage = e.getMessage();
+			assertTrue(expectedMessage.contains(actualMessage));
+		}
+	}
+	
+	@DisplayName("Test del Setter del precio con precio en 0")
+	@Test
+	void testSetterPricein0() {
+			p1.setPrice(0);
+			double priceExpected = 0;
+			double priceActual = p1.getPrice();
+			assertEquals(priceExpected, priceActual);
+		
+	}
+	
+	@DisplayName("Test del Setter del precio con precio negativo")
+	@Test
+	void testSetterPrice() {
+		p1.setPrice(20);
+		double valueExpected = 20;
+		double valueActual = p1.getPrice();
+		assertEquals(valueExpected, valueActual);
 	}
 
 }
